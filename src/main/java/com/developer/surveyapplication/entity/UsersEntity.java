@@ -35,6 +35,8 @@ public class UsersEntity {
     private Date dateModified;
 
 // constructors
+
+
     public UsersEntity(Long id, String firstName, String lastName, String email, Integer age, String county, String roles, String password, Date dateCreated, Date dateModified) {
         this.id = id;
         this.firstName = firstName;

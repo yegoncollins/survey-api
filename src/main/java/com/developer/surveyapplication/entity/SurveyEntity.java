@@ -31,11 +31,13 @@ public class SurveyEntity {
     private String question5;
     @Column(name="question6")
     private String question6;
+    @Column(name="question7_file_reference")
+    private String question7FileReference;
 
     // Constructors
 
 
-    public SurveyEntity(Long id, String title, String question1, String question2, String question2OptionA, String question2OptionB, String question2OptionC, String question3, String question4, String question5, String question6) {
+    public SurveyEntity(Long id, String title, String question1, String question2, String question2OptionA, String question2OptionB, String question2OptionC, String question3, String question4, String question5, String question6, String question7FileReference) {
         this.id = id;
         this.title = title;
         this.question1 = question1;
@@ -47,6 +49,7 @@ public class SurveyEntity {
         this.question4 = question4;
         this.question5 = question5;
         this.question6 = question6;
+        this.question7FileReference = question7FileReference;
     }
 
     public SurveyEntity() {
@@ -141,5 +144,12 @@ public class SurveyEntity {
 
     public void setQuestion6(String question6) {
         this.question6 = question6;
+    }
+    public String getQuestion7FileReference() {
+        return question7FileReference;
+    }
+
+    public void setQuestion7FileReference(String question7FileReference) {
+        this.question7FileReference = question7FileReference;
     }
 }
