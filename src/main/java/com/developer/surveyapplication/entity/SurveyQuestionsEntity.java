@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "survey")
-public class SurveyEntity {
+public class SurveyQuestionsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "survey_id")
-    private Long id;
+    @Column(name = "survey_question_id")
+    private Long survey_question_id;
 
     @Column(name = "title")
     private String title;
@@ -37,8 +37,8 @@ public class SurveyEntity {
     // Constructors
 
 
-    public SurveyEntity(Long id, String title, String question1, String question2, String question2OptionA, String question2OptionB, String question2OptionC, String question3, String question4, String question5, String question6, String question7FileReference) {
-        this.id = id;
+    public SurveyQuestionsEntity(Long survey_question_id, String title, String question1, String question2, String question2OptionA, String question2OptionB, String question2OptionC, String question3, String question4, String question5, String question6, String question7FileReference) {
+        this.survey_question_id = survey_question_id;
         this.title = title;
         this.question1 = question1;
         this.question2 = question2;
@@ -52,18 +52,17 @@ public class SurveyEntity {
         this.question7FileReference = question7FileReference;
     }
 
-    public SurveyEntity() {
+    public SurveyQuestionsEntity() {
     }
 
 // getters, and setters
 
-
-    public Long getId() {
-        return id;
+    public Long getSurvey_question_id() {
+        return survey_question_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSurvey_question_id(Long survey_question_id) {
+        this.survey_question_id = survey_question_id;
     }
 
     public String getTitle() {
@@ -145,6 +144,7 @@ public class SurveyEntity {
     public void setQuestion6(String question6) {
         this.question6 = question6;
     }
+
     public String getQuestion7FileReference() {
         return question7FileReference;
     }

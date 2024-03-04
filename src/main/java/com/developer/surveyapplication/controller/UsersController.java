@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UsersController {
 
     private final UserService userService;
@@ -22,22 +22,23 @@ public class UsersController {
     public List<UsersEntity> findAllUsers(){
      return userService.findAllUser();
     }
-    @GetMapping("/{id}")
-    public Optional<UsersEntity> findUserById(@PathVariable("id") Long id){
-        return userService.findById(id);
+    @GetMapping("/{user_id}")
+    public Optional<UsersEntity> findUserById(@PathVariable("user_id") Long user_id){
+        return userService.findBy_user_id(user_id);
     }
     @PostMapping
     public UsersEntity saveUser(@RequestBody UsersEntity usersEntity){
         return userService.saveUser(usersEntity);
     }
-    @PutMapping
-    public  UsersEntity updateUser(@RequestBody UsersEntity usersEntity){
+    @PutMapping("/{user_id}")
+    public  UsersEntity updateUser(@PathVariable("user_id") Long user_id, @RequestBody UsersEntity usersEntity){
+        usersEntity.setUser_id(user_id);
         return userService.updateUser(usersEntity);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable("id") Long id){
-        userService.deleteUser(id);
+    @DeleteMapping("/{user_id}")
+    public void deleteUser(@PathVariable("user_id") Long user_id){
+        userService.deleteUser(user_id);
     }
 
 }

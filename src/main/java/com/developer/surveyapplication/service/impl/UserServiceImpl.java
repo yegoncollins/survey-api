@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<UsersEntity> findById(Long id) {
-        return userRepository.findById(id);
+    public Optional<UsersEntity> findBy_user_id(Long user_id) {
+        return userRepository.findById(user_id);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(Long id) {
-       userRepository.deleteById(id);
+    public void deleteUser(Long user_id) {
+       userRepository.deleteById(user_id);
     }
 }

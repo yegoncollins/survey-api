@@ -12,11 +12,11 @@ public class UsersEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 
     @Column(name="user_id")
-    private Long id;
-    @Column(name="firstname")
-    private String firstName;
-    @Column(name="lastname")
-    private String lastName;
+    private Long user_id;
+    @Column(name="first_name")
+    private String first_name;
+    @Column(name="last_name")
+    private String last_name;
     @Column(name="email")
     private String email;
     @Column(name="age")
@@ -29,53 +29,53 @@ public class UsersEntity {
     private String password;
 
     @Column(name="date_created")
-    private Date dateCreated;
+    private Date date_created;
 
     @Column(name="date_modified")
-    private Date dateModified;
+    private Date date_modified;
 
 // constructors
 
 
-    public UsersEntity(Long id, String firstName, String lastName, String email, Integer age, String county, String roles, String password, Date dateCreated, Date dateModified) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public UsersEntity(Long user_id, String first_name, String last_name, String email, Integer age, String county, String roles, String password, Date date_created, Date date_modified) {
+        this.user_id = user_id;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.age = age;
         this.county = county;
         this.roles = roles;
         this.password = password;
-        this.dateCreated = dateCreated;
-        this.dateModified = dateModified;
+        this.date_created = date_created;
+        this.date_modified = date_modified;
     }
 
     public UsersEntity() {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getEmail() {
@@ -118,20 +118,19 @@ public class UsersEntity {
         this.password = password;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
-    public Date getDateModified() {
-        return dateModified;
+    public Date getDate_modified() {
+        return date_modified;
     }
 
-    public void setDateModified(Date dateModified) {
-        this.dateModified = dateModified;
+    public void setDate_modified(Date date_modified) {
+        this.date_modified = date_modified;
     }
-
 }
