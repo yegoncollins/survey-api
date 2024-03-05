@@ -27,10 +27,8 @@ public class UsersEntity {
     private String roles;
     @Column(name="password")
     private String password;
-
     @Column(name="date_created")
     private Date date_created;
-
     @Column(name="date_modified")
     private Date date_modified;
 

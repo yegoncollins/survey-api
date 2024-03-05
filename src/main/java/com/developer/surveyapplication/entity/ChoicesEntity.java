@@ -12,7 +12,7 @@ public class ChoicesEntity {
     @Column(name = "choice_id")
     private Long choice_id;
     @Column(name = "survey_question_id")
-    private String survey_question_id;
+    private Long survey_question_id;
     @Column(name="choice_option")
     private String choice_option;
     @Column(name="choice_value")
@@ -25,7 +25,7 @@ public class ChoicesEntity {
     public ChoicesEntity() {
     }
 
-    public ChoicesEntity(Long choice_id, String survey_question_id, String choice_option, String choice_value, Date date_created, Date date_modified) {
+    public ChoicesEntity(Long choice_id, Long survey_question_id, String choice_option, String choice_value, Date date_created, Date date_modified) {
         this.choice_id = choice_id;
         this.survey_question_id = survey_question_id;
         this.choice_option = choice_option;
@@ -38,15 +38,15 @@ public class ChoicesEntity {
         return choice_id;
     }
 
-    public void setId(Long choice_id) {
+    public void setChoice_id(Long choice_id) {
         this.choice_id = choice_id;
     }
 
-    public String getSurvey_question_id() {
+    public Long getSurvey_question_id() {
         return survey_question_id;
     }
 
-    public void setSurvey_question_id(String survey_question_id) {
+    public void setSurvey_question_id(Long survey_question_id) {
         this.survey_question_id = survey_question_id;
     }
 

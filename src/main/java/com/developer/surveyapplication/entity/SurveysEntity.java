@@ -12,7 +12,7 @@ public class SurveysEntity {
     @Column(name = "surveys_id")
     private Long survey_id;
     @Column(name = "user_id")
-    private String user_id;
+    private Long user_id;
     @Column(name="survey_name")
     private String survey_name;
     @Column(name="description")
@@ -25,7 +25,7 @@ public class SurveysEntity {
     public SurveysEntity() {
     }
 
-    public SurveysEntity(Long survey_id, String user_id, String survey_name, String description, Date date_created, Date date_modified) {
+    public SurveysEntity(Long survey_id, Long user_id, String survey_name, String description, Date date_created, Date date_modified) {
         this.survey_id = survey_id;
         this.user_id = user_id;
         this.survey_name = survey_name;
@@ -42,11 +42,11 @@ public class SurveysEntity {
         this.survey_id = survey_id;
     }
 
-    public String getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
@@ -70,7 +70,7 @@ public class SurveysEntity {
         return date_created;
     }
 
-    public void setDate_reated(Date date_created) {
+    public void setDate_created(Date date_created) {
         this.date_created = date_created;
     }
 

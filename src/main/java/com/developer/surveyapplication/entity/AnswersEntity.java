@@ -13,11 +13,11 @@ public class AnswersEntity {
     @Column(name = "answer_id")
     private Long answer_id;
     @Column(name = "user_id")
-    private String user_id;
+    private Long user_id;
     @Column(name="choice_id")
-    private String choice_id;
+    private Long choice_id;
     @Column(name = "survey_question_id")
-    private String survey_question_id;
+    private Long survey_question_id;
     @Column(name="answer_value")
     private String answer_value;
     @Column(name="date_created")
@@ -31,7 +31,7 @@ public class AnswersEntity {
 
     //constructors
 
-    public AnswersEntity(Long answer_id, String user_id, String choice_id, String survey_question_id, String answer_value, Date date_created, Date date_modified) {
+    public AnswersEntity(Long answer_id, Long user_id, Long choice_id, Long survey_question_id, String answer_value, Date date_created, Date date_modified) {
         this.answer_id = answer_id;
         this.user_id = user_id;
         this.choice_id = choice_id;
@@ -53,27 +53,27 @@ public class AnswersEntity {
         this.answer_id = answer_id;
     }
 
-    public String getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public String getChoice_id() {
+    public Long getChoice_id() {
         return choice_id;
     }
 
-    public void setChoice_id(String choice_id) {
+    public void setChoice_id(Long choice_id) {
         this.choice_id = choice_id;
     }
 
-    public String getSurvey_question_id() {
+    public Long getSurvey_question_id() {
         return survey_question_id;
     }
 
-    public void setSurvey_question_id(String survey_question_id) {
+    public void setSurvey_question_id(Long survey_question_id) {
         this.survey_question_id = survey_question_id;
     }
 
