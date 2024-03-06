@@ -24,12 +24,12 @@ public class AnswersController {
     @GetMapping("/{answer_id}")
     public Optional<AnswersEntity> findAnswersById(@PathVariable("answer_id") Long answer_id){return answersService.findBy_answer_id(answer_id);
     }
-    @PostMapping
-    public AnswersEntity saveAnswers(@RequestBody AnswersEntity answersEntity){
+    @PostMapping("/{answer_id}")
+    public AnswersEntity saveAnswers(@PathVariable("answer_id") Long answer_id,@RequestBody AnswersEntity answersEntity){
         return answersService.saveAnswers(answersEntity);
     }
-    @PutMapping
-    public AnswersEntity updateAnswers(@RequestBody AnswersEntity answersEntity){
+    @PutMapping("/{answer_id}")
+    public AnswersEntity updateAnswers(@PathVariable("answer_id") Long answer_id,@RequestBody AnswersEntity answersEntity){
         return answersService.updateAnswers(answersEntity);
     }
 

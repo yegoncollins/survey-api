@@ -24,11 +24,11 @@ public class ChoicesController {
     @GetMapping("/{choice_id}")
     public Optional<ChoicesEntity> findChoicesById(@PathVariable("choice_id") Long choice_id){return choicesService.findBy_choice_id(choice_id);
     }
-    @PostMapping
+    @PostMapping("/{choice_id}")
     public ChoicesEntity saveChoices(@RequestBody ChoicesEntity choicesEntity){
         return choicesService.saveChoices(choicesEntity);
     }
-    @PutMapping
+    @PutMapping("/{choice_id}")
     public  ChoicesEntity updateChoices(@RequestBody ChoicesEntity choicesEntity){
         return choicesService.updateChoices(choicesEntity);
     }

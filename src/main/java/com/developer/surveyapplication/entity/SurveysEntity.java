@@ -11,6 +11,7 @@ public class SurveysEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "surveys_id")
     private Long survey_id;
+    // FOREIGN KEY
     @Column(name = "user_id")
     private Long user_id;
     @Column(name="survey_name")

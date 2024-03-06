@@ -1,6 +1,7 @@
 package com.developer.surveyapplication.controller;
 
 
+import com.developer.surveyapplication.entity.SurveySummaryEntity;
 import com.developer.surveyapplication.entity.SurveysEntity;
 
 import com.developer.surveyapplication.service.SurveysService;
@@ -26,12 +27,13 @@ public class SurveysController {
     public Optional<SurveysEntity> findSurveysById(@PathVariable("surveys_id") Long surveys_id){
         return surveysService.findBy_survey_id(surveys_id);
     }
-    @PostMapping
+    @PostMapping("/{surveys_id}")
     public SurveysEntity saveSurveys(@RequestBody SurveysEntity surveysEntity){
         return surveysService.saveSurveys(surveysEntity);
     }
-    @PutMapping
-    public  SurveysEntity updateSurveys(@RequestBody SurveysEntity surveysEntity){
+    @PutMapping("/{surveys_id}")
+    public  SurveysEntity updateSurveys(@PathVariable("surveys_id") Long surveys_id, @RequestBody SurveysEntity surveysEntity){
+        surveysEntity.setSurvey_id(surveys_id);
         return surveysService.updateSurveys(surveysEntity);
     }
 

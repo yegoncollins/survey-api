@@ -26,12 +26,12 @@ public class SurveyQuestionsController {
     public Optional<SurveyQuestionsEntity> findSurveyQuestionsById(@PathVariable("survey_question_id") Long survey_question_id){
         return surveyQuestionsService.findBy_survey_question_id(survey_question_id);
     }
-    @PostMapping
-    public SurveyQuestionsEntity saveSurveyQuestions(@RequestBody SurveyQuestionsEntity surveyQuestionsEntity){
+    @PostMapping("/{survey_question_id}")
+    public SurveyQuestionsEntity saveSurveyQuestions(@PathVariable("survey_question_id") Long survey_question_id, @RequestBody SurveyQuestionsEntity surveyQuestionsEntity){
         return surveyQuestionsService.saveSurveyQuestions(surveyQuestionsEntity);
     }
-    @PutMapping
-    public SurveyQuestionsEntity updateSurveyQuestions(@RequestBody SurveyQuestionsEntity surveyQuestionsEntity){
+    @PutMapping("/{survey_question_id}")
+    public SurveyQuestionsEntity updateSurveyQuestions(@PathVariable("survey_question_id") Long survey_question_id, @RequestBody SurveyQuestionsEntity surveyQuestionsEntity){
         return surveyQuestionsService.updateSurveyQuestions(surveyQuestionsEntity);
     }
 

@@ -27,14 +27,14 @@ public class SurveySummaryController {
         return surveySummaryService.findBy_survey_summary_id(survey_summary_id);
     }
 
-    @PostMapping
+    @PostMapping("/{survey_summary_id}")
     public SurveySummaryEntity saveSurveySummary(@RequestBody SurveySummaryEntity surveySummaryEntity) {
-
         return surveySummaryService.saveSurveySummary(surveySummaryEntity);
     }
 
-    @PutMapping
-    public SurveySummaryEntity updateSurveySummary(@RequestBody SurveySummaryEntity surveySummaryEntity) {
+    @PutMapping("/{survey_summary_id}")
+    public SurveySummaryEntity updateSurveySummary(@PathVariable("survey_summary_id") Long survey_summary_id, @RequestBody SurveySummaryEntity surveySummaryEntity) {
+        surveySummaryEntity.setSurvey_summary_id(survey_summary_id);
         return surveySummaryService.updateSurveySummary(surveySummaryEntity);
     }
 
