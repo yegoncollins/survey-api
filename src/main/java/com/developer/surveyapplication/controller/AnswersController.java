@@ -2,6 +2,7 @@ package com.developer.surveyapplication.controller;
 
 
 import com.developer.surveyapplication.entity.AnswersEntity;
+import com.developer.surveyapplication.entity.ChoicesEntity;
 import com.developer.surveyapplication.service.AnswersService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +22,9 @@ public class AnswersController {
     @GetMapping
     public List<AnswersEntity> findAllAnswers(){return answersService.findAllAnswers();
     }
-    @GetMapping("/api/questions/answers/{answer_id}")
-    public Optional<AnswersEntity> findAnswersById(@PathVariable("answer_id") Long answer_id){return answersService.findBy_answer_id(answer_id);
+    @GetMapping("/{answer_id}")
+    public Optional<AnswersEntity> findAnswerById(@PathVariable("answer_id") Long answer_id){
+        return answersService.findBy_answer_id(answer_id);
     }
     @PostMapping
     public AnswersEntity saveAnswers(@RequestBody AnswersEntity answersEntity){

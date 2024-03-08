@@ -1,5 +1,6 @@
 package com.developer.surveyapplication.controller;
 
+import com.developer.surveyapplication.entity.SurveyQuestionsEntity;
 import com.developer.surveyapplication.entity.SurveySummaryEntity;
 import com.developer.surveyapplication.service.SurveySummaryService;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,8 @@ public class SurveySummaryController {
         return surveySummaryService.findAllSurveySummary();
     }
 
-    @GetMapping("/api/survey/summary/{survey_summary_id}")
-    public Optional<SurveySummaryEntity> findSurveySummaryById(Long survey_summary_id) {
+    @GetMapping("/{survey_summary_id}")
+    public Optional<SurveySummaryEntity> findSurveySummaryById(@PathVariable("survey_summary_id") Long survey_summary_id){
         return surveySummaryService.findBy_survey_summary_id(survey_summary_id);
     }
 

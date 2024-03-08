@@ -10,4 +10,6 @@ public interface ChoicesService {
     ChoicesEntity saveChoices(ChoicesEntity choicesEntity);
     ChoicesEntity updateChoices(ChoicesEntity choicesEntity);
     void deleteChoices(Long choice_id);
+
+
 }
