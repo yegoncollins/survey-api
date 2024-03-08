@@ -23,12 +23,14 @@ public class SurveysController {
     @GetMapping
     public List<SurveysEntity> findAllSurveys(){return surveysService.findAllSurveys();
     }
-    @GetMapping("/{surveys_id}")
-    public Optional<SurveysEntity> findSurveysById(@PathVariable("surveys_id") Long surveys_id){
-        return surveysService.findBy_survey_id(surveys_id);
+    @GetMapping("/api/surveys/{user_id}")
+    public Optional<SurveysEntity> findSurveysById(Long user_id){
+        return surveysService.findBy_survey_id(user_id);
     }
-    @PostMapping("/{surveys_id}")
+    @PostMapping
     public SurveysEntity saveSurveys(@RequestBody SurveysEntity surveysEntity){
+        Long userId = surveysEntity.getUser_id();
+        surveysEntity.setUser_id(userId);
         return surveysService.saveSurveys(surveysEntity);
     }
     @PutMapping("/{surveys_id}")

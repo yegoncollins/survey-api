@@ -10,10 +10,12 @@ public class SurveysEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "surveys_id")
-    private Long survey_id;
+    private long survey_id;
+
     // FOREIGN KEY
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
+
     @Column(name="survey_name")
     private String survey_name;
     @Column(name="description")
@@ -26,29 +28,29 @@ public class SurveysEntity {
     public SurveysEntity() {
     }
 
-    public SurveysEntity(Long survey_id, Long user_id, String survey_name, String description, Date date_created, Date date_modified) {
+    public SurveysEntity(long survey_id, UsersEntity userId, String survey_name, String description, Date date_created, Date date_modified) {
         this.survey_id = survey_id;
-        this.user_id = user_id;
+        this.userId = userId.getUser_id();
         this.survey_name = survey_name;
         this.description = description;
         this.date_created = date_created;
         this.date_modified = date_modified;
     }
 
-    public Long getSurvey_id() {
+    public long getSurvey_id() {
         return survey_id;
     }
 
-    public void setSurvey_id(Long survey_id) {
+    public void setSurvey_id(long survey_id) {
         this.survey_id = survey_id;
     }
 
     public Long getUser_id() {
-        return user_id;
+        return userId;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUser_id(Long userId) {
+        this.userId = userId;
     }
 
     public String getSurvey_name() {

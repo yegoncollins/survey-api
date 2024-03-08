@@ -11,6 +11,7 @@ public class ChoicesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "choice_id")
     private Long choice_id;
+    // FOREIGN KEY
     @Column(name = "survey_question_id")
     private Long survey_question_id;
     @Column(name="choice_option")
@@ -25,20 +26,20 @@ public class ChoicesEntity {
     public ChoicesEntity() {
     }
 
-    public ChoicesEntity(Long choice_id, Long survey_question_id, String choice_option, String choice_value, Date date_created, Date date_modified) {
+    public ChoicesEntity(Long choice_id, SurveyQuestionsEntity survey_question_id, String choice_option, String choice_value, Date date_created, Date date_modified) {
         this.choice_id = choice_id;
-        this.survey_question_id = survey_question_id;
+        this.survey_question_id = survey_question_id.getSurvey_question_id();
         this.choice_option = choice_option;
         this.choice_value = choice_value;
         this.date_created = date_created;
         this.date_modified = date_modified;
     }
 
-    public Long getChoice_id() {
+    public long getChoice_id() {
         return choice_id;
     }
 
-    public void setChoice_id(Long choice_id) {
+    public void setChoice_id(long choice_id) {
         this.choice_id = choice_id;
     }
 

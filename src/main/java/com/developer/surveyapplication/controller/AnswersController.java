@@ -21,19 +21,27 @@ public class AnswersController {
     @GetMapping
     public List<AnswersEntity> findAllAnswers(){return answersService.findAllAnswers();
     }
-    @GetMapping("/{answer_id}")
+    @GetMapping("/api/questions/answers/{answer_id}")
     public Optional<AnswersEntity> findAnswersById(@PathVariable("answer_id") Long answer_id){return answersService.findBy_answer_id(answer_id);
     }
-    @PostMapping("/{answer_id}")
-    public AnswersEntity saveAnswers(@PathVariable("answer_id") Long answer_id,@RequestBody AnswersEntity answersEntity){
+    @PostMapping
+    public AnswersEntity saveAnswers(@RequestBody AnswersEntity answersEntity){
+        Long userId = answersEntity.getUser_id();
+        Long survey_questionId = answersEntity.getSurvey_question_id();
+        Long choiceId = answersEntity.getChoice_id();
+
+        answersEntity.setUser_id(userId);
+        answersEntity.setSurvey_question_id(survey_questionId);
+        answersEntity.setChoice_id(choiceId);
         return answersService.saveAnswers(answersEntity);
     }
     @PutMapping("/{answer_id}")
     public AnswersEntity updateAnswers(@PathVariable("answer_id") Long answer_id,@RequestBody AnswersEntity answersEntity){
+        answersEntity.setAnswer_id(answer_id);
         return answersService.updateAnswers(answersEntity);
     }
 
-    @DeleteMapping("/{answer_id}")
+    @DeleteMapping
     public void deleteAnswers(@PathVariable("answer_id") Long answer_id){
         answersService.deleteAnswers(answer_id);
     }

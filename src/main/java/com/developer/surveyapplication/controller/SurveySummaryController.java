@@ -22,13 +22,15 @@ public class SurveySummaryController {
         return surveySummaryService.findAllSurveySummary();
     }
 
-    @GetMapping("/{survey_summary_id}")
-    public Optional<SurveySummaryEntity> findSurveySummaryById(@PathVariable("survey_summary_id") Long survey_summary_id) {
+    @GetMapping("/api/survey/summary/{survey_summary_id}")
+    public Optional<SurveySummaryEntity> findSurveySummaryById(Long survey_summary_id) {
         return surveySummaryService.findBy_survey_summary_id(survey_summary_id);
     }
 
-    @PostMapping("/{survey_summary_id}")
+    @PostMapping
     public SurveySummaryEntity saveSurveySummary(@RequestBody SurveySummaryEntity surveySummaryEntity) {
+        Long surveyId = surveySummaryEntity.getSurvey_id();
+        surveySummaryEntity.setSurvey_id(surveyId);
         return surveySummaryService.saveSurveySummary(surveySummaryEntity);
     }
 
@@ -38,8 +40,8 @@ public class SurveySummaryController {
         return surveySummaryService.updateSurveySummary(surveySummaryEntity);
     }
 
-    @DeleteMapping("/{survey_summary_id}")
-    public void deleteSurveySummary(@PathVariable("survey_summary_id") Long survey_summary_id) {
+    @DeleteMapping
+    public void deleteSurveySummary( Long survey_summary_id) {
         surveySummaryService.deleteSurveySummary(survey_summary_id);
     }
 }

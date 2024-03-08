@@ -12,10 +12,13 @@ public class AnswersEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "answer_id")
     private Long answer_id;
+    // FOREIGN KEY
     @Column(name = "user_id")
     private Long user_id;
+    // FOREIGN KEY
     @Column(name="choice_id")
     private Long choice_id;
+    // FOREIGN KEY
     @Column(name = "survey_question_id")
     private Long survey_question_id;
     @Column(name="answer_value")
@@ -31,11 +34,11 @@ public class AnswersEntity {
 
     //constructors
 
-    public AnswersEntity(Long answer_id, Long user_id, Long choice_id, Long survey_question_id, String answer_value, Date date_created, Date date_modified) {
+    public AnswersEntity(Long answer_id, UsersEntity user_id, ChoicesEntity choice_id, SurveyQuestionsEntity survey_question_id, String answer_value, Date date_created, Date date_modified) {
         this.answer_id = answer_id;
-        this.user_id = user_id;
-        this.choice_id = choice_id;
-        this.survey_question_id = survey_question_id;
+        this.user_id = user_id.getUser_id();
+        this.choice_id = choice_id.getChoice_id();
+        this.survey_question_id = survey_question_id.getSurvey_question_id();
         this.answer_value = answer_value;
         this.date_created = date_created;
         this.date_modified = date_modified;
@@ -45,11 +48,11 @@ public class AnswersEntity {
     //getters and setters
 
 
-    public Long getAnswer_id() {
+    public long getAnswer_id() {
         return answer_id;
     }
 
-    public void setAnswer_id(Long answer_id) {
+    public void setAnswer_id(long answer_id) {
         this.answer_id = answer_id;
     }
 

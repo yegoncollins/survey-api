@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "survey_user")
+@Table(name = "survey_users")
 public class UsersEntity {
 
     @Id
@@ -20,7 +20,7 @@ public class UsersEntity {
     @Column(name="email")
     private String email;
     @Column(name="age")
-    private Integer age;
+    private Integer age;//range
     @Column(name="county")
     private String county;
     @Column(name="roles")
@@ -48,9 +48,6 @@ public class UsersEntity {
         this.date_modified = date_modified;
     }
 
-    public UsersEntity() {
-
-    }
 
     public Long getUser_id() {
         return user_id;

@@ -21,15 +21,16 @@ public class ChoicesController {
     @GetMapping
     public List<ChoicesEntity> findAllChoices(){return choicesService.findAllChoices();
     }
-    @GetMapping("/{choice_id}")
-    public Optional<ChoicesEntity> findChoicesById(@PathVariable("choice_id") Long choice_id){return choicesService.findBy_choice_id(choice_id);
-    }
-    @PostMapping("/{choice_id}")
+
+    @PostMapping
     public ChoicesEntity saveChoices(@RequestBody ChoicesEntity choicesEntity){
+        Long survey_question_id = choicesEntity.getSurvey_question_id();
+        choicesEntity.setSurvey_question_id(survey_question_id);
         return choicesService.saveChoices(choicesEntity);
     }
     @PutMapping("/{choice_id}")
-    public  ChoicesEntity updateChoices(@RequestBody ChoicesEntity choicesEntity){
+    public  ChoicesEntity updateChoices(@PathVariable("choice_id") Long choice_id, @RequestBody ChoicesEntity choicesEntity){
+        choicesEntity.setChoice_id(choice_id);
         return choicesService.updateChoices(choicesEntity);
     }
 
