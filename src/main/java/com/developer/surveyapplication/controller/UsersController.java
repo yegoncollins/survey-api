@@ -1,6 +1,7 @@
 package com.developer.surveyapplication.controller;
 
 
+import com.developer.surveyapplication.entity.SurveysEntity;
 import com.developer.surveyapplication.entity.UsersEntity;
 import com.developer.surveyapplication.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,7 @@ public class UsersController {
     }
 
     @GetMapping
-    public List<UsersEntity> findAllUsers(){
-     return userService.findAllUser();
+    public List<UsersEntity> findAllUser(){return userService.findAllUser();
     }
     @GetMapping("/{user_id}")
     public Optional<UsersEntity> findUserById(@PathVariable("user_id") Long user_id){

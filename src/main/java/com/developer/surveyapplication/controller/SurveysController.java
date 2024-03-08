@@ -1,6 +1,7 @@
 package com.developer.surveyapplication.controller;
 
 
+import com.developer.surveyapplication.entity.AnswersEntity;
 import com.developer.surveyapplication.entity.SurveySummaryEntity;
 import com.developer.surveyapplication.entity.SurveysEntity;
 
@@ -23,9 +24,9 @@ public class SurveysController {
     @GetMapping
     public List<SurveysEntity> findAllSurveys(){return surveysService.findAllSurveys();
     }
-    @GetMapping("/api/surveys/{user_id}")
-    public Optional<SurveysEntity> findSurveysById(Long user_id){
-        return surveysService.findBy_survey_id(user_id);
+    @GetMapping("/{surveys_id}")
+    public Optional<SurveysEntity> findSurveysById(@PathVariable("surveys_id") Long surveys_id){
+        return surveysService.findBy_survey_id(surveys_id);
     }
     @PostMapping
     public SurveysEntity saveSurveys(@RequestBody SurveysEntity surveysEntity){
