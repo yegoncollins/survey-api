@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/survey/questions")
+@CrossOrigin(origins ="*")
 public class SurveyQuestionsController {
 
     private final SurveyQuestionsService surveyQuestionsService;
